@@ -46,28 +46,6 @@ class App extends Component {
           options={['good', 'neutral', 'bad']}
           onLeaveFeedback={this.addPoint}
         />
-        <div>
-          {/* <h2> Please leave Feetback</h2> */}
-          {/* <button
-            type="button"
-            name="good"
-            value="good"
-            onClick={this.addPoint}
-          >
-            good
-          </button>
-          <button
-            type="button"
-            name="neutral"
-            value="neutral"
-            onClick={this.addPoint}
-          >
-            neutral
-          </button>
-          <button type="button" name="bad" value="bad" onClick={this.addPoint}>
-            bad
-          </button> */}
-        </div>
 
         <Statistics
           good={good}
