@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import FeedbackOptions from './FeedbackOptions';
-// import Statistics from './Statistics/';
+import FeedbackOptions from './FeedbackOptions';
+import Statistics from './Statistics/';
 
 class App extends Component {
   state = {
@@ -9,17 +9,24 @@ class App extends Component {
     bad: 0,
   };
 
-  addPointGood = () => {
-    this.setState(prevState => ({ good: prevState.good + 1 }));
+  // addPointGood = () => {
+  //   this.setState(prevState => ({ good: prevState.good + 1 }));
+  // };
+
+  // addPointNeutral = () => {
+  //   this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
+  // };
+
+  // addPointBad = () => {
+  //   this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  // };
+
+  addPoint = e => {
+    this.setState(prevState => ({
+      [e.target.name]: prevState[e.target.value] + 1,
+    }));
   };
 
-  addPointNeutral = () => {
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  };
-
-  addPointBad = () => {
-    this.setState(prevState => ({ bad: prevState.bad + 1 }));
-  };
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -35,42 +42,40 @@ class App extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <>
-        {/* <FeedbackOptions options={} onLeaveFeedback={}></FeedbackOptions> */}
+        <FeedbackOptions
+          options={['good', 'neutral', 'bad']}
+          onLeaveFeedback={this.addPoint}
+        />
         <div>
-          <h2> Please leave Feetback</h2>
-          <button type="button" onClick={this.addPointGood}>
+          {/* <h2> Please leave Feetback</h2> */}
+          {/* <button
+            type="button"
+            name="good"
+            value="good"
+            onClick={this.addPoint}
+          >
             good
           </button>
-          <button type="button" onClick={this.addPointNeutral}>
+          <button
+            type="button"
+            name="neutral"
+            value="neutral"
+            onClick={this.addPoint}
+          >
             neutral
           </button>
-          <button type="button" onClick={this.addPointBad}>
+          <button type="button" name="bad" value="bad" onClick={this.addPoint}>
             bad
-          </button>
+          </button> */}
         </div>
 
-        {/* <Statistics good={good} neutral={neutral} bad={bad} total={total} /> */}
-        <div>
-          <h2> Statistics</h2>
-          <ul>
-            <li>
-              <p>good: {good}</p>
-            </li>
-            <li>
-              <p>neutral: {neutral}</p>
-            </li>
-            <li>
-              <p>bad: {bad} </p>
-            </li>
-            <li>
-              <p>total: {this.countTotalFeedback()}</p>
-
-              <p>
-                Positive Feedback: {this.countPositiveFeedbackPercentage()}%
-              </p>
-            </li>
-          </ul>
-        </div>
+        <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={this.countTotalFeedback()}
+          positivePercentage={this.countPositiveFeedbackPercentage()}
+        />
 
         {/* <Notification message="There is no feedback"/> */}
       </>

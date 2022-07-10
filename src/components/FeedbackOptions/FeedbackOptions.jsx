@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
 
 class FeedbackOptions extends Component {
-  addPointGood = () => {
-    this.setState(prevState => ({ good: prevState.good + 1 }));
-  };
-
-  addPointNeutral = () => {
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  };
-
-  addPointBad = () => {
-    this.setState(prevState => ({ bad: prevState.bad + 1 }));
-  };
-
   render() {
+    const { options, onLeaveFeedback } = this.props;
     return (
       <div>
         <h2> Please leave Feetback</h2>
 
-        <button type="button" onClick={this.addPointGood}>
+        <button
+          type="button"
+          name={options[0]}
+          value={options[0]}
+          onClick={onLeaveFeedback}
+        >
           good
         </button>
-        <button type="button" onClick={this.addPointNeutral}>
+        <button
+          type="button"
+          name={options[1]}
+          value={options[1]}
+          onClick={onLeaveFeedback}
+        >
           neutral
         </button>
-        <button type="button" onClick={this.addPointBad}>
+        <button
+          type="button"
+          name={options[2]}
+          value={options[2]}
+          onClick={onLeaveFeedback}
+        >
           bad
         </button>
       </div>
