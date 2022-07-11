@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Section from './Section';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics/';
+import propTypes from 'prop-types';
 
 class App extends Component {
   state = {

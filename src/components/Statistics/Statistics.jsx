@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notification from '../Notification';
+import propTypes from 'prop-types';
 
 class Statistics extends Component {
   render() {
@@ -30,5 +31,13 @@ class Statistics extends Component {
     );
   }
 }
+
+Statistics.propTypes = {
+  good: propTypes.number.isRequired,
+  neutral: propTypes.number.isRequired,
+  bad: propTypes.number.isRequired,
+  total: propTypes.number.isRequired,
+  positivePercentage: propTypes.number.isRequired,
+};
 
 export default Statistics;
