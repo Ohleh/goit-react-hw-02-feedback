@@ -3,11 +3,29 @@ import React, { Component } from 'react';
 class FeedbackOptions extends Component {
   render() {
     const { options, onLeaveFeedback } = this.props;
+    const massProps = Object.keys(options);
+    console.log(massProps);
+
     return (
       <div>
-        <button
+        {massProps.map(massProp => {
+          return (
+            <button
+              type="button"
+              name="good"
+              value={massProp}
+              onClick={onLeaveFeedback}
+            >
+              {massProp}
+            </button>
+          );
+        })}
+      </div>
+    );
+
+    /* <button
           type="button"
-          name={options[0]}
+          name="good"
           value={options[0]}
           onClick={onLeaveFeedback}
         >
@@ -15,7 +33,7 @@ class FeedbackOptions extends Component {
         </button>
         <button
           type="button"
-          name={options[1]}
+          name="neutral"
           value={options[1]}
           onClick={onLeaveFeedback}
         >
@@ -23,15 +41,12 @@ class FeedbackOptions extends Component {
         </button>
         <button
           type="button"
-          name={options[2]}
+          name="bad"
           value={options[2]}
           onClick={onLeaveFeedback}
         >
           bad
-        </button>
-      </div>
-    );
+        </button> */
   }
 }
-
 export default FeedbackOptions;
