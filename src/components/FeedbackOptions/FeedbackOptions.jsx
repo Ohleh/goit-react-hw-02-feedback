@@ -5,8 +5,6 @@ class FeedbackOptions extends Component {
     const { options, onLeaveFeedback } = this.props;
     return (
       <div>
-        <h2> Please leave Feetback</h2>
-
         <button
           type="button"
           name={options[0]}
