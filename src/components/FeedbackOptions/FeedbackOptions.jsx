@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <div>
-    {Object.keys(options).map((massProp, index) => {
+    {options.map((massProp, index) => {
       return (
         <button
           key={index}

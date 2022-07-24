@@ -36,7 +36,7 @@ class App extends Component {
         <div>
           <Section title="Please leave Feetback">
             <FeedbackOptions
-              options={this.state}
+              options={Object.keys(this.state)}
               onLeaveFeedback={this.addPoint}
             />
             <Statistics
